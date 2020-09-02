@@ -3,7 +3,7 @@
 Why JavaLite was created: 
 
 * Igor started writing in Java in 1996, when Java was fun. It offered a huge productivity leap compared to C++.
-* Igor develped a first web app in 1999, but since containers were not available or were very buggy, he developed the entire web 
+* Igor developed a first web app in 1999, but since containers were not available or were very buggy, he developed the entire web 
     server, a form of a templating system and a way to write code fast, without realizing this was a product in itself.
 * Web just started to come out if its infancy and Sun released very useful specifications, such as JDBC and Servlets API. 
 * Late 90s Java was all the ragem and Sun pushed out so-called Enterprise standards, which immediately killed all the productivity. 
@@ -43,20 +43,80 @@ h1. About the Authors
 * Igor Polevoy - praise yourself
 * ??
 
-> The TOC below is from RoR book  and needs to be augmented for the JavaLite book 
+
+# Introduction
+
+This books is long overdue. The initial code for the framework was written and and put into production back in 2009, and 
+powered a massive product for a well known insurance company. In other words, the initial deployment was already commercial and 
+development rose from the necessity to have a technology that  allowed the following:
+
+* Minimal code 
+* Almost no  configuration
+* Fast development cycle
+* Ability to  write readable code, since maintenance is a bulk of software cost. 
+
+
+##  About This Book
+
+##  Who should read this book
+
+* A Java developer - beginner, journeyman and a master, anyone can  benefit 
+ 
+##  Goals
+
+* Gaining  understanding of the agile approach for building modern business systems 
+in Java with the help of JavaLite.  
+ 
+
+##  Required Technology
+
+* The Java Programming language
+* At least a cursory understanding of SQL and relational databases.
+* Some understanding of web applications practices and some standards,
+    * HTTP
+    * Ajax
+    * REST
+
+## What is JavaLite
+
+* Umbrella  for AJ, AW, Async, Migrator, etc. 
+* Each component can be used independently and also together 
+* Simplicity is a driving factor 
+
+
+### Principles: 
+
+* Get the best idea from Ruby on Rails, as long as they still make sense in Java 
+* Get  the best ideas  from Java, including low level specifications: JDBC, JMS, Servlets, Maven, Gradle, Jar, War deployment.
+* Stay container - agnostic  
+* Allow to use any other tools Java developers use. 
+* Allow for fast prototyping 
+* Provide everything you need in a typical app, aside from specialized features
+* Provide the highest levels of support for TDD. Tests  (also known as specs) are the backbone of modern software development. 
+
+### Components
+
+* ActiveJDBC - description here 
+* ActiveWeb - ---
+* DBMigrator - --
+* JSpec - - 
+* Async ---
+* AppConfig
+
+
+## ActiveJDBC ORM and the database access
+
+### Low level, just above JDBC
+
+* Connection management uses ThreadLocal a novel idea - parallel to Aspect-oriented programming   
+* Describe DB  and  Base classes
+
+
+
+> Below  is a TOC from RoR book top poach for ideas
  
 
 
-h1. Introduction 
-
-h About This Book 
-* Recommended Reading and Resources
-* Goals 
-* Prerequisites 
-* Required Technology 
-
-1 Rails Environments and Configuration
-1.1 Bundler 
 1.2 Startup and Application Settings
 1.3 Development Mode
 1.4 Test Mode
