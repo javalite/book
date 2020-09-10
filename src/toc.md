@@ -11,7 +11,7 @@ Why JavaLite was created:
 * In early 2000s, Java was hard, and Spring came out to aleviate some pains. 
 * Rails came out in 2005, and Igor was at the SD West conference, seeing the Rails presentation. 
 ** The presenter focused on building pretty HTML, so Igor "did not get" it
-* In 2007, Sears project was done in a typical Java "agile" fashion: Spring, Hybernate, Struts. It was slow to execute and slow to develop. 
+* In 2007, Sears project was done in a typical Java "agile" fashion: Spring, Hibernate, Struts. It was slow to execute and slow to develop. 
 * A few Rails developers joined the project and convinced the Sears management that Rails is better.
 * In a typical Sears management style (no analysis), the management made a technical decision to keep the existing Java features but build all new features in Rails in a mixed technical environment. 
 * From a tech stand point, it was very hard, but presented an opportulity to learn Rails 
