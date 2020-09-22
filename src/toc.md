@@ -1,5 +1,7 @@
 # Foreword 
 
+TODO: Meh, too much garbage here, cleanup - not important
+ 
 Why JavaLite was created: 
 
 * Igor started writing in Java in 1996, when Java was fun. It offered a huge productivity leap compared to C++.
@@ -84,7 +86,7 @@ in Java with the help of JavaLite.
 * Simplicity is a driving factor 
 
 
-### Principles: 
+### Principles for development: 
 
 * Get the best idea from Ruby on Rails, as long as they still make sense in Java 
 * Get  the best ideas  from Java, including low level specifications: JDBC, JMS, Servlets, Maven, Gradle, Jar, War deployment.
@@ -106,10 +108,105 @@ in Java with the help of JavaLite.
 
 ## ActiveJDBC ORM and the database access
 
+You can agrue that ActiveJDBC   has a two-layered architecture, where classes DB and Base provide the "low level" logic that stis directly atop JDBC 
+and serves as a swisss army knife  for database access and connection management. The models (entities in a Hibernate speak) provide an 
+Object-Oriented access to the data, while using Base and DB classes under the hood. 
+ 
+
+
 ### Low level, just above JDBC
 
-* Connection management uses ThreadLocal a novel idea - parallel to Aspect-oriented programming   
-* Describe DB  and  Base classes
+* Connection management uses ThreadLocal a novel idea - parallel to Aspect-oriented programming: https://javalite.io/database_connection_management   
+* Describe DB  and  Base classes as Swiss Army knife for JDBC.
+    * Base for a single default connection
+    * DB for multiple named connections to different databases. 
+    
+
+ 
+### Models
+
+In MVC M stands for a Model and is a classical term for something  that contains data. 
+Comparing with other notable technologies in Java,  an ActiveJDBC is equivalent to an entity in Hibernate. 
+
+#### Main Principles
+
+* Was inspired by Ruby on Rails and hte [ActiveRecord pattern](https://en.wikipedia.org/wiki/Active_record_pattern).  
+* Configures itself from the database schema by default - perfect for new apps
+* Can be configured by annotations  
+
+
+#### A model is a facade for a DB table 
+
+describe  simple cases here. 
+ 
+ 
+#### Models  and DB connections 
+
+* No need to propagate  connection management  open a default connection in case you have just one database
+* In case of  multiple databases, you can have a database affinity and named connections
+
+
+#### Models are similar to Maps
+
+There has been some speculation online that models are the same as maps
+just because they have a `get` and `set` method that look like they came from 
+the `java.util.Map` interface. 
+ 
+Models might be perceived as maps, but they are not because: 
+
+1. Class model does not implement a `Map` interface 
+2. Models have a strict number of named attributes that mirror corresponding tables' columns
+
+TODO: examples here. 
+  
+
+ 
+#### Pass-through framework 
+
+Expand on this: 
+https://javalite.io/pass_through_framework
+
+
+> Main philosophy: do not implement anything that is already implemented 
+at a lower level. 
+
+ActiveJDBC will not check if you are setting the right type for the 
+right attribute. For instance, you can do this: 
+
+```java
+user.set("first_name", new Date());
+```
+ 
+which is obviously wrong. There are many ways to approach this issue: 
+
+* Write good quality tests
+* Use typed setters: 
+
+```java
+user.setDouble("price", 123d);
+```
+This way you get a compilation error.
+ 
+*  Write a specific setter:
+
+```java
+public  class User extends Model{
+    public User setPrice(Double price){
+        return set("price", price);
+    }
+}
+```
+
+> In general, I recommend to use all three methods depending on the situation.  
+
+
+---- 
+
+
+
+
+   
+ 
 
 
 
